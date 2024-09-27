@@ -135,7 +135,6 @@ function solution(alp, cop, problems) {
             dp[i][j+1] = dp[i][j+1] === 0 ? dp[i][j] + 1 : Math.min(dp[i][j+1], dp[i][j] + 1)
         }
         
-        const availableProblems = getAvailableProblems(i, j)
         getAvailableProblems(i+alp, j+cop).forEach((problem) => {
             const [alp_req, cop_req, alp_rwd, cop_rwd, cost] = problem
             const [nextI, nextJ] = trimIndex(i + alp_rwd, j + cop_rwd)
