@@ -1,12 +1,27 @@
 # [LEVEL 3] 코딩테스트 공부
 
+## TLDR
+> [!IMPORTANT]
+> 1. 2D DP 시, 값을 `clamp`해줄 수 있겠다. 즉, 범위에 들게 만드는 문제를 한 점으로 고정시키는 방식.
+> 2. `matrix` 생성 시, `row`와 `col` 길이 validate하기. `0`이 아닌지 확인하기.
+
+<br>
+
 **문제 링크** : [코딩 테스트 공부](https://school.programmers.co.kr/learn/courses/30/lessons/118668?language=javascript) <br>
 
 **채점 결과**
 
+[1차]
+
 정확성: 50.0 <br>
 효율성: 45.0 <br>
 합계: 95.0 / 100.0 <br>
+
+[2차]
+
+정확성: 50.0 <br>
+효율성: 50.0 <br>
+합계: 100.0 / 100.0 <br>
 
 ## Thought Process
 
@@ -155,9 +170,5 @@ function solution(alp, cop, problems) {
 2. 첫번째 칸이 `(0, 0)`이 아닌 **초기값**을 나타내기 때문에, 실수할 여지가 있을 듯. `index` 처리도 추상화해줬으면 더 편했을 것 같다.
 3. 3개의 ternary operator 조금 헷갈렸었음.
 
-<br>
-
-## Summary
-> [!NOTE]
-> 1. 2D DP 시, 값을 `clamp`해줄 수 있겠다. 즉, 범위에 들게 만드는 문제를 한 점으로 고정시키는 방식.
-> 3. `matrix` 생성 시, `row`와 `col` 길이 validate하기. `0`이 아닌지 확인하기.
+> [효율성] 3번 테스트 케이스만 0되게 찍었는데 "정답입니다" 이러네.
+> grid가 많은데 답이 0인 경우가 있을 수 있나...?
