@@ -178,15 +178,29 @@ function solution(alp, cop, problems) {
 특히 `getAvailableProblems(i+alp, j+cop)` 이 부분. 까먹었으면 어떡해.
 
 ```js
+// before
+getAvailableProblems(i+alp, j+cop)
 
+//after
 const [currentAlp, currentCop] = [i+alp, j+cop]
 getAvailableProblems(currentAlp, currentCop)
 ```
 
-최소한 이렇게라도 해주자..
+> 최소한 이렇게라도 해주자..
 
 <br>
 
-3. ternary operator 부분 너무 복잡함. 복잡하면 검산 안할 거잖아. 애초에 `0`이 아니라, `Infinity`로 초기값 넣어줬으면 `Math.min()`으로 바로 넣을 수 있었을 듯.
+3. ternary operator 부분 너무 복잡함. 복잡하면 검산 안할 거잖아. 애초에 `0`이 아니라, `Infinity`로 초기값 넣어줬으면 `Math.min()`으로 바로 넣을 수 있었을 듯. `visited` 했는지 알 필요가 있는 문제도 아니고.
 
+```js
+// before
+const dp = Array(rows).fill().map(() => Array(cols).fill(0));
+...
+dp[nextI][nextJ] = dp[nextI][nextJ] === 0 ? dp[i][j] + cost : Math.min(dp[nextI][nextJ], dp[i][j] + cost)
 
+//after
+const dp = Array(rows).fill().map(() => Array(cols).fill(Infinity));
+...
+const [currentAlp, currentCop] = [i+alp, j+cop]
+dp[nextI][nextJ] = Math.min(dp[nextI][nextJ], dp[i][j] + cost)
+```
