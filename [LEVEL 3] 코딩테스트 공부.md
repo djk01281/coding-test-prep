@@ -167,8 +167,26 @@ function solution(alp, cop, problems) {
 ## Possible Improvements
 
 1. 크게 문제될 건 없어 보이는데, [효율성] 3번 테스트 케이스 `TLE`. 진짜 모르겠넹 😢
-2. 첫번째 칸이 `(0, 0)`이 아닌 **초기값**을 나타내기 때문에, 실수할 여지가 있을 듯. `index` 처리도 추상화해줬으면 더 편했을 것 같다.
-3. 3개의 ternary operator 조금 헷갈렸었음.
 
 > [효율성] 3번 테스트 케이스만 0되게 찍었는데 "정답입니다" 이러네.
-> grid가 많은데 답이 0인 경우가 있을 수 있나...?
+> grid가 많은데 답이 `0`인 경우가 있을 수 있나...?
+
+<br>
+
+2. 첫번째 칸이 `(0, 0)`이 아닌 **초기값**을 나타내기 때문에, 실수할 여지가 있을 듯. `index` 처리도 추상화해줬으면 더 편했을 것 같다.
+
+특히 `getAvailableProblems(i+alp, j+cop)` 이 부분. 까먹었으면 어떡해.
+
+```js
+
+const [currentAlp, currentCop] = [i+alp, j+cop]
+getAvailableProblems(currentAlp, currentCop)
+```
+
+최소한 이렇게라도 해주자..
+
+<br>
+
+3. ternary operator 부분 너무 복잡함. 복잡하면 검산 안할 거잖아. 애초에 `0`이 아니라, `Infinity`로 초기값 넣어줬으면 `Math.min()`으로 바로 넣을 수 있었을 듯.
+
+
