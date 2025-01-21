@@ -106,7 +106,7 @@
 <br>
 
 
-## Submition
+## Submission
 
 ```js
 function traverse2DArray(array, callback){
